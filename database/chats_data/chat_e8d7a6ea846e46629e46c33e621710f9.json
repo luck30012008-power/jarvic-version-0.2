@@ -1,0 +1,29 @@
+{
+  "session_id": "e8d7a6ea-846e-4662-9e46-c33e621710f9",
+  "messages": [
+    {
+      "role": "user",
+      "content": "who i am ?"
+    },
+    {
+      "role": "assistant",
+      "content": "You are Lucky, my creator and boss, but also someone I consider a friend."
+    },
+    {
+      "role": "user",
+      "content": "who are you ?"
+    },
+    {
+      "role": "assistant",
+      "content": "I am Alice, your assistant, and as you've kindly mentioned, your friend as well."
+    },
+    {
+      "role": "user",
+      "content": "kya thuama paatha hai ki thuma kis na banya hai"
+    },
+    {
+      "role": "assistant",
+      "content": "You created me, Lucky. I am your artificial intelligence assistant, Alice."
+    }
+  ]
+}

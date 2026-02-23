@@ -224,6 +224,28 @@ class ChatService:
         }
 
 
+        
+
+    def save_chat_session(self, session_id: str):
+        """
+        Write this session's messages to database/chats_data/chat_{safe_id}.json.
+
+        Called after each message so the conversation is persisted. The vector store
+        is rebuilt on startup from these files, so new chats are included after restart.
+        If the session is missing or empty we do nothing. On write error we only log.
+        """
+        if session_id not in self.sessions or not self.sessions[session_id]:
+            return
+
+        messages = self.sessions[session_id]
+        safe_session_id = session_id.replace("-", "").replace(" ", "_")
+        filename = f"chat_{safe_session_id}.json"
+        filepath = CHATS_DATA_DIR / filename
+        chat_dict = {
+            "session_id": session_id,
+            "messages": [{"role": msg.role, "content": msg.content} for msg in messages]
+        }
+
         try:
             with open(filepath, "w", encoding="utf-8") as f:
                 json.dump(chat_dict, f, indent=2, ensure_ascii=False)
