@@ -185,7 +185,7 @@ class ChatService:
         response = self.groq_service.get_response(question=user_message, chat_history=chat_history)
         self.add_message(session_id, "assistant", response)
         return response
-    def process_message_realtime(self, session_id: str, user_message: str) -> str:
+    def process_realtime_message(self, session_id: str, user_message: str) -> str:
         """
         Handle one realtime message: add user message, call realtime service (tavily + Groq), add reply, return it.
         uses the same session as process_message so history is shared. Raises ValueError if realtime_service is NOne.
